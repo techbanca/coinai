@@ -1,0 +1,20 @@
+{
+        "TableName": "PerformanceData",
+        "KeySchema": [
+            {
+                "AttributeName": "HashKey",
+                "KeyType": "HASH"
+            }
+        ],
+        "ProvisionedThroughput": {
+            "WriteCapacityUnits": 5,
+            "ReadCapacityUnits": 5
+        },
+        "AttributeDefinitions": [
+           
+            {
+                "AttributeName": "HashKey",
+                "AttributeType": "S"
+            }
+        ]
+}

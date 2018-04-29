@@ -1,0 +1,42 @@
+{
+        "GlobalSecondaryIndexes": [
+            {
+                "KeySchema": [
+                    {
+                        "AttributeName": "Name",
+                        "KeyType": "HASH"
+                    }
+                ],
+                "IndexName": "Name-index",
+                "ProvisionedThroughput": {
+                    "ReadCapacityUnits": 5,
+                    "WriteCapacityUnits": 5
+                },
+                "Projection": {
+                    "ProjectionType": "ALL"
+                }
+            }
+        ],
+        "KeySchema": [
+            {
+                "AttributeName": "Ticker",
+                "KeyType": "HASH"
+            }
+        ],
+        "AttributeDefinitions": [
+            {
+                "AttributeName": "Name",
+                "AttributeType": "S"
+            },
+            {
+                "AttributeName": "Ticker",
+                "AttributeType": "S"
+            }
+        ],
+        "TableName": "RiskFactor",
+        "ProvisionedThroughput": {
+            "ReadCapacityUnits": 5,
+            "WriteCapacityUnits": 5
+        }
+    
+}

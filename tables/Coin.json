@@ -1,0 +1,151 @@
+{
+        "GlobalSecondaryIndexes": [
+            {
+                "Projection": {
+                    "ProjectionType": "ALL"
+                },
+               
+                "ProvisionedThroughput": {
+                    "WriteCapacityUnits": 5,
+                    "ReadCapacityUnits": 5
+                   
+                },
+                "IndexName": "idx_MaxDate_T",
+                "KeySchema": [
+                    {
+                        "KeyType": "HASH",
+                        "AttributeName": "MaxDate"
+                    },
+                    {
+                        "KeyType": "RANGE",
+                        "AttributeName": "T"
+                    }
+                ]
+            },
+            {
+                "Projection": {
+                    "ProjectionType": "ALL"
+                },
+              
+                "ProvisionedThroughput": {
+                    "WriteCapacityUnits": 5,
+                    "ReadCapacityUnits": 5
+                },
+                "IndexName": "OwnerID-index",
+                "KeySchema": [
+                    {
+                        "KeyType": "HASH",
+                        "AttributeName": "OwnerID"
+                    }
+                ]
+            },
+            {
+               "IndexName": "OwnerID-Name-index",
+                
+                "ProvisionedThroughput": {
+                    "ReadCapacityUnits": 5,
+                    "WriteCapacityUnits": 5
+                },
+                "KeySchema": [
+                    {
+                        "AttributeName":   "OwnerID",
+                        "KeyType": "HASH"
+                    },
+                    {
+                        "AttributeName": "Name",
+                        "KeyType": "RANGE"
+                    }
+                ],
+                
+                "Projection": {
+                    "ProjectionType": "ALL"
+                }
+            },
+            
+            {
+                "Projection": {
+                    "ProjectionType": "ALL"
+                },
+               
+                "ProvisionedThroughput": {
+                    "WriteCapacityUnits": 5,
+                    "ReadCapacityUnits": 5
+                },
+                "IndexName": "IsWatchList-index",
+                "KeySchema": [
+                    {
+                        "KeyType": "HASH",
+                        "AttributeName": "IsWatchList"
+                    }
+                ]
+            },
+            {
+                "Projection": {
+                    "ProjectionType": "ALL"
+                },
+               
+                "ProvisionedThroughput": {
+                    "WriteCapacityUnits": 5,
+                    "ReadCapacityUnits": 5
+                },
+                "IndexName": "idx_Freq_Time",
+                "KeySchema": [
+                    {
+                        "KeyType": "HASH",
+                        "AttributeName": "Frequency"
+                    },
+                    {
+                        "KeyType": "RANGE",
+                        "AttributeName": "T"
+                    }
+                ]
+               
+               
+             
+            }
+        ],
+        "ProvisionedThroughput": {
+            "WriteCapacityUnits": 5,
+            "ReadCapacityUnits": 5
+        },
+        
+        "TableName": "Coin",
+        "KeySchema": [
+            {
+                "KeyType": "HASH",
+                "AttributeName": "HashKey"
+            }
+        ],
+        "AttributeDefinitions": [
+            {
+                "AttributeType": "S",
+                "AttributeName": "Frequency"
+            },
+            {
+                "AttributeType": "S",
+                "AttributeName": "HashKey"
+            },
+            {
+                "AttributeType": "N",
+                "AttributeName": "IsWatchList"
+            },
+            {
+                "AttributeType": "N",
+                "AttributeName": "MaxDate"
+            },
+            {
+                "AttributeType": "S",
+                "AttributeName": "OwnerID"
+            },
+            {
+                "AttributeType": "N",
+                "AttributeName": "T"
+            }
+            ,
+            {
+                "AttributeType": "S",
+                "AttributeName": "Name"
+            }
+        ]
+    }
+

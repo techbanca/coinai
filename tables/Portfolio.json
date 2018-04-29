@@ -1,0 +1,31 @@
+{
+    "TableName": "Portfolio",
+    "KeySchema": [
+        {
+            "AttributeName": "CompanyID",
+            "KeyType": "HASH" 
+        },
+        {
+            "AttributeName": "HashKey",
+            "KeyType": "RANGE"
+        }
+    ],
+   
+    "AttributeDefinitions": [ 
+     
+        {
+            "AttributeName": "CompanyID",
+            "AttributeType": "S"
+        },
+         {
+            "AttributeName": "HashKey",
+            "AttributeType": "S"
+        }
+    ],
+     
+    "ProvisionedThroughput": {
+        "ReadCapacityUnits": 1, 
+        "WriteCapacityUnits": 1
+    }
+    
+}

@@ -1,0 +1,22 @@
+{
+
+    "TableName": "FactorModel",
+    "ProvisionedThroughput": {
+        "ReadCapacityUnits": 5,
+        "WriteCapacityUnits": 5
+    },
+    "AttributeDefinitions": [
+        {
+            "AttributeName": "Code",
+            "AttributeType": "S"
+        }
+    ],
+    
+    "KeySchema": [
+        {
+            "AttributeName": "Code",
+            "KeyType": "HASH"
+        }
+    ]
+
+}

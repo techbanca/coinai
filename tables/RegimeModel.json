@@ -1,0 +1,24 @@
+{
+    "TableName": "RegimeModel",
+    "KeySchema": [
+        {
+            "AttributeName": "ModelName",
+            "KeyType": "HASH"
+        }
+
+    ],
+   
+    "AttributeDefinitions": [ 
+     
+        {
+            "AttributeName": "ModelName",
+            "AttributeType": "S"
+        }
+    ],
+     
+    "ProvisionedThroughput": {
+        "ReadCapacityUnits": 1, 
+        "WriteCapacityUnits": 1
+    }
+    
+}
