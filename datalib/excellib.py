@@ -49,8 +49,8 @@ def set_cell_value(wb,rngname,value):
     return cell
     
 if __name__ == '__main__':
-    filename = '/users/aleksey/downloads/RegimeTemplate-6.xlsx'
+    filename = './RegimeTemplate-6.xlsx'
     wb = getwb(filename)
     #res = read_rng_cell(wb,'MODEL_NAME')
     set_cell_value(wb,"MODEL_NAME","TEST 123")
-    wb.save('/users/aleksey/downloads/RegimeTemplate2.xlsx')
+    wb.save('./RegimeTemplate2.xlsx')
