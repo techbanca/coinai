@@ -1,6 +1,6 @@
 {
         "ProvisionedThroughput": {
-            "WriteCapacityUnits": 1,
+            "WriteCapacityUnits": 2,
             "ReadCapacityUnits": 1
         },
         "AttributeDefinitions": [
