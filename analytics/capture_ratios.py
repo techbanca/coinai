@@ -20,6 +20,7 @@ class CaptureRatios:
         r2 = logreturns(ts2[idx])
         return r1/r2
 
+    
     def calc_beta(self,ts_y, ts_x, idx):
         
         x = ts_x[idx]
@@ -49,6 +50,7 @@ class CaptureRatios:
         reg_up = self.calc_beta(self.coin_data, self.bench_data, self.idx_bench_up)
         reg_dn = self.calc_beta(self.coin_data, self.bench_data, self.idx_bench_dn)
         
+        
         self.alpha_up = reg_up[0]
         self.alpha_dn = reg_dn[0]
         self.beta_up = reg_up[1]
@@ -71,9 +73,6 @@ class CaptureRatios:
             self.bench_dn = self.bench_data[self.idx_bench_dn].mean()
         else:
             self.dn_outperf = 0
-        
-        
-        
-        
+
     def __repr__(self):
         return str(self.__dict__)
