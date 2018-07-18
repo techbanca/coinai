@@ -8,6 +8,7 @@
 """
 
 from analytics.time_series import align_series
+
 class CorrelationAnalysis:
     
     def __init__(self, ts, bench_ts):
