@@ -16,6 +16,7 @@ class CorrelationAnalysis:
         self.bench_ts = bench_ts
         self.common_data = align_series([self.ts, self.bench_ts])
         self.columns = self.common_data.columns
+        
         self.idx_up = self.common_data[self.columns[1]] > 0
         self.idx_dn = self.common_data[self.columns[1]] < 0
        
