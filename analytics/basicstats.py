@@ -14,12 +14,14 @@ Basic Statistics
     Developed by Coin-AI, 2017-2018
     Contact: banca
 """
+
 import numpy as np
 import scipy.stats as stats
 from pandas import Series,  DataFrame
 from analytics.time_series import get_frequency
+from logger.client import debug_info
 
-ann_factor = {"M":12, "A":1,"D":250,"B":250,"W":52 ,}
+ann_factor = {"M":12, "A":1,"D":365,"B":250,"W":52 ,"Z":0, "H":8760,"h":72}
 
 def adj_z_score(z_0, s, k):
     """
@@ -46,16 +48,17 @@ def cvar(rets):
     
 class BasicStats:
 
-    def __init__(self, perf_ts, risk_free= 0, z_score = 1.96):
-        
+    def __init__(self, perf_ts, risk_free= 0, z_score = 1.96, folio_name=""):
+        debug_info("BasicStats perf_ts : %s"%(str(perf_ts)))
         self.perf_ts = perf_ts
         self.z_score = z_score
         self.risk_free = risk_free
-        self.freq = get_frequency(perf_ts)
+        freq = get_frequency(self.perf_ts)
+        self.freq = "Day" if freq == "D" else freq
         self.ann_factor = ann_factor[self.freq[0]]
         self.sqrt_factor = self.ann_factor ** 0.5
-        self.tsarr = perf_ts.values
-        self.tsarr_rf = [x - risk_free / self.ann_factor for x in self.tsarr]
+        self.tsarr = self.perf_ts.values  # [perf["NetReturn"] for perf in perf_ts]
+        self.tsarr_rf = [float(x) - risk_free / self.ann_factor for x in self.tsarr] if self.ann_factor else []
         self.perf_rf = Series(data=self.tsarr_rf, index=self.perf_ts.index)
         self.T = len(self.perf_ts)
         self.mean = np.mean(self.tsarr)
@@ -63,7 +66,7 @@ class BasicStats:
         self.skew = stats.skew(self.tsarr)
         self.kurt = stats.kurtosis(self.tsarr)+3
         self.mdd_ser = BasicStats.under_water_series(self.perf_ts)
-        self.maxdd = min(self.mdd_ser)
+        self.maxdd = min(self.mdd_ser) if self.ann_factor else 0
         self.up_returns = [r for r in self.tsarr if r > 0]
         self.dn_returns = [r for r in self.tsarr if r < 0]
         self.T_UP = len(self.up_returns)
@@ -78,8 +81,8 @@ class BasicStats:
         self.vami_rf = BasicStats.vami_arr(self.perf_rf)
         self.cum_return = self.vami[-1] -1
         self.cum_return_rf = self.vami_rf[-1] - 1
-        self.ann_return = (1+self.cum_return) **(self.ann_factor / self.T) - 1
-        self.ann_return_rf = (1+self.cum_return_rf) **(self.ann_factor / self.T) - 1
+        self.ann_return = ((1+self.cum_return) **(self.ann_factor / self.T) - 1) #if self.T >=365 else self.cum_return / self.T * 365
+        self.ann_return_rf = (1+self.cum_return_rf) **(self.ann_factor / self.T) - 1 #if self.T >=365 else self.cum_return_rf / self.T * 365
         self.ann_std = self.std * np.sqrt(self.ann_factor)
         self.std_rf = np.std(self.tsarr_rf)
         self.mean_rf = np.mean(self.tsarr_rf)
@@ -97,6 +100,7 @@ class BasicStats:
         X_1 = self.perf_ts[:-1].values
         self.ser_df = DataFrame([X,X_1]).transpose()
         self.serr_corr = self.ser_df.corr().iloc[0,1]
+        self.socre = self.sharpe * 5 + self.ann_return * 10 + self.sortino * 5 - self.maxdd * 5
 
     def downside_deviation(self,ts, mar = 0 ):
         res = sum([(t -mar)**2 for t in ts if t < mar])
