@@ -27,8 +27,8 @@ class CorrelationAnalysis:
         if len(self.common_data) >= 6:
             self.corr = self.common_data.corr().iloc[1,0]
 
-        if len(self.data_up) >= 6:
+        if len(self.data_up) >= 5:
             self.corr_up = self.data_up.corr().iloc[1,0]
         
-        if len(self.data_dn) >= 6:
+        if len(self.data_dn) >= 5:
             self.corr_dn = self.data_dn.corr().iloc[1,0]
