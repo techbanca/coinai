@@ -72,5 +72,8 @@ class CaptureRatios:
         else:
             self.dn_outperf = 0
         
+        
+        
+        
     def __repr__(self):
         return str(self.__dict__)
