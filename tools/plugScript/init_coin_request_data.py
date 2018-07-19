@@ -16,6 +16,7 @@ from lib.config import configs
 
 ticker_url = "https://api.coinmarketcap.com/v2/ticker/?start=%d&limit=100"
 detail_url = 'https://coinmarketcap.com/currencies/%s/'
+
 url = "https://min-api.cryptocompare.com/data/price?fsym=%s&tsyms=BTC,USD,EUR"
 url_list = []
 output_path = current_path.split("plugScript")[0] + "plugScript/data/coin_url/"
@@ -87,6 +88,7 @@ async def down_paraser_item(pre_item={}, session=None):
     trading_24_volume = usd.get("volume_24h","?")
     hours_1_index = usd.get("percent_change_1h","?")
     hours_24_index = usd.get("percent_change_24h","?")
+    
     day_7_index = usd.get("percent_change_7d","?")
 
     detailUrl = detail_url % website_slug
