@@ -7,7 +7,7 @@
         ],
         "TableName": "Users",
         "ProvisionedThroughput": {
-            "WriteCapacityUnits": 5,
+            "WriteCapacityUnits": 6,
             "ReadCapacityUnits": 5
         },
         
