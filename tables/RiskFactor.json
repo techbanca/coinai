@@ -7,9 +7,10 @@
                         "KeyType": "HASH"
                     }
                 ],
+                    
                 "IndexName": "Name-index",
                 "ProvisionedThroughput": {
-                    "ReadCapacityUnits": 5,
+                    "ReadCapacityUnits": 6,
                     "WriteCapacityUnits": 5
                 },
                 "Projection": {
