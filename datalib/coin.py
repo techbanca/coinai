@@ -8,6 +8,7 @@
     Contact: banca
 """
 
+
 from uuid import uuid1
 from datetime import datetime
 from pandas import Series
@@ -38,7 +39,7 @@ class CoinPerformance:
     
     def __init__ (self, series):  
         self.series = series
-        if len(series) < 3:
+        if len(series) < 2:
             self.freq = 'M'
         else:
             self.freq = get_frequency(series)
@@ -163,6 +164,7 @@ class Coin:
         return []
       
    
+
     def to_db_item(self):
         """
             create dictionary object that can be stored in DynamodDB
@@ -172,7 +174,7 @@ class Coin:
             if key != 'Performance':
                 val = self.__dict__[key]
                 if type(val) is float:
-                    res = round(Decimal(val),6)
+                    res = round(Decimal(val),5)
                 else:
                     res = val
                 data[key] = res
