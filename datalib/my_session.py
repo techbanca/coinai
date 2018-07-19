@@ -6,7 +6,6 @@
     
     Developed by Coin-AI, 2017-2018
     Contact: banca
-
 """
 
 from datalib.datalib import Connection  
@@ -19,6 +18,7 @@ def get_session(sessionid):
     res = table.get_item(Key={"HashKey":sessionid})
     
     return res['Item'] if res_ok(res) else def_sess(sessionid)
+
 
 def save_session(session):
     db = Connection()
