@@ -13,7 +13,6 @@ from analytics.time_series import align_series
 from numpy import matrix
 from pandas import Series
 
-
 class Portfolio:
     def __init__(self, data):
 
@@ -53,7 +52,7 @@ class Portfolio:
             get_w = lambda : [float(a['Allocation']) for a in self.Allocations]
             
             weights =  new_weights if len(new_weights) > 0 else get_w()
-            good_weights = [w for w in weights if w > 0]
+            good_weights = [w for w in weights if w > 0.0]
             
             if update_common_ts:
                 if not self.coins:
@@ -62,7 +61,7 @@ class Portfolio:
                 perfs = []
                 for coin,w in zip(self.coins,weights):
                     if w > 0:
-                        if len(coin.Performance) == 0:
+                        if len(coin.Performance) == 0.0:
                             coin2 = db.get_coin(coin.HashKey,get_ts=True)
                             coin.Performance = coin2.Performance
                         else:
