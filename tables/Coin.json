@@ -6,7 +6,7 @@
                 },
                
                 "ProvisionedThroughput": {
-                    "WriteCapacityUnits": 5,
+                    "WriteCapacityUnits": 6,
                     "ReadCapacityUnits": 5
                    
                 },
@@ -68,7 +68,7 @@
                 },
                
                 "ProvisionedThroughput": {
-                    "WriteCapacityUnits": 5,
+                    "WriteCapacityUnits": 6,
                     "ReadCapacityUnits": 5
                 },
                 "IndexName": "IsWatchList-index",
