@@ -8,7 +8,6 @@
     Contact: banca
 """
 
-
 class User:
     def __init__(self, item):
         
@@ -35,3 +34,5 @@ class User:
         
     def get_id(self):
         return self.userid
+    
+    
