@@ -39,6 +39,7 @@ class Resampler:
         """
         total_w = 0
         weights = zeros(self.N)
+        
         for i in range(self.N-1):
             w = random.random()*(1-total_w)
             total_w += w
@@ -59,6 +60,7 @@ class Resampler:
     def run(self):
         self.portfolio.calc_proforma(self.db,[1/float(self.N) for _ in range(self.N)],True)
         self.trials = [self.calc_trial() for _ in range(self.n_trials)]
+        
         for trial in self.trials:
             er = trial.mean
             vl = trial.std
