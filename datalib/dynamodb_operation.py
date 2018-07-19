@@ -52,8 +52,8 @@ class dynamodb_operation():
     def create_table_from_desc(self, path):
         table_desc = self.load_json(path)
         provisionedThroughput = {
-            'ReadCapacityUnits': 5,
-            'WriteCapacityUnits': 5
+            'ReadCapacityUnits': 6,
+            'WriteCapacityUnits': 6
         }
         tableName = self.get_item_desc('TableName', table_desc)
         attributeDefinitions = self.get_item_desc('AttributeDefinitions', table_desc)
