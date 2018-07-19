@@ -33,6 +33,7 @@ if [ "$1" = "start" ]; then
         echo run_web.py running
     fi
 
+
     cn=`ps -ef | grep cron_main.py | grep -v grep |awk '{print $2}'`
     echo $cn
     if [ "${cn}" = "" ]
@@ -45,6 +46,7 @@ if [ "$1" = "start" ]; then
     dr=`ps -ef | grep distribute_request_down.py | grep -v grep |awk '{print $2}'`
     echo $dr
     if [ "${dr}" = "" ]
+    
     then
         sudo nohup python3 tools/plugScript/cron_job/distribute_request_down.py >/dev/null 2>&1 &
         sudo nohup python3 tools/plugScript/cron_job/distribute_request_down.py >/dev/null 2>&1 &
