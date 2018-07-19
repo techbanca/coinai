@@ -6,6 +6,7 @@ import asyncio
 import aiohttp
 import datetime
 
+
 from bs4 import BeautifulSoup
 
 current_path = os.path.realpath(__file__)
@@ -171,6 +172,7 @@ async def down_paraser_item(pre_item, day_num=0, session=None):
                 if res:
                     continue
 
+                    
                 perfor = Performance(coin_id=coin_id, close_value=close_value,
                                      net_return=net_return, effective_date=float(effective_time))
                 await perfor.save()
@@ -243,7 +245,7 @@ async def listen_coin_day_task(loop):
                     await session.close()
                     session = None
             err_data_List = []
-            time.sleep(5)
+            time.sleep(6)
 
 async def listen_coin_minute_task(loop):
 
