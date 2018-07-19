@@ -7,12 +7,12 @@ import multiprocessing
 
 debug = True
 loglevel = 'debug'
-bind = '0.0.0.0:1974'
+bind = '0.0.0.0:1975'
 pidfile = 'logfiles/gunicorn.pid'
 logfile = 'logfiles/debug.log'
 
 #start process number
-workers = multiprocessing.cpu_count() * 2 + 1
+workers = multiprocessing.cpu_count() * 3 + 1
 worker_class = 'gunicorn.workers.ggevent.GeventWorker'
 
 x_forwarded_for_header = 'X-FORWARDED-FOR'
