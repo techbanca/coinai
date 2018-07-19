@@ -92,6 +92,7 @@ class BasicStats:
         self.var_adj = self.mean - self.adj_z * self.std
         self.cvar = cvar(self.tsarr)
         self.best = max(self.tsarr)
+        
         self.worst = min(self.tsarr)
         self.down_dev = self.downside_deviation(self.tsarr_rf)
         self.sortino = self.ann_return_rf / (self.std_loss * self.sqrt_factor)
