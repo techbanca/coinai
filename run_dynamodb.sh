@@ -9,6 +9,7 @@ basepath=$(cd `dirname $0`; pwd)
 
 cd $basepath
 
+
 if [ "$1" = "start" ]; then
     set -x
     echo "It is starting the dynamoDB local server!"
@@ -31,6 +32,7 @@ if [ "$1" = "start" ]; then
     else
         echo "keep_dynamodb.sh  running"
     fi
+
 
 elif [ "$1" = "stop" ]; then
 
