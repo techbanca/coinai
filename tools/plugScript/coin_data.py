@@ -35,6 +35,7 @@ coin_items = [
             "symbol": "NVC",
             "website_slug": "novacoin"
         },
+        
         {
             "id": 8,
             "name": "Feathercoin",
