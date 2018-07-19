@@ -142,6 +142,7 @@ async def main(loop, day_num):
     session = aiohttp.ClientSession(conn_timeout=1800)
 
     data_lists = []
+    
     for num in range(10):
         result_data = await fetch_async(ticker_url % (num * 100 + 1), session, toJson=True)
         if result_data:
@@ -157,6 +158,7 @@ async def main(loop, day_num):
         for folio_val in folios_lists:
             redis_obj.producer("folio_24_hour:queue", json.dumps({"id": folio_val.id}, ensure_ascii=False, default=__default))
 
+            
     if day_num == 1:
         for val in all_value:
             redis_obj.producer("coin_all_day:queue", json.dumps(val))
