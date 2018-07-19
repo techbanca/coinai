@@ -14,15 +14,28 @@ Install the project of coinai running environment:
 1) install gcc , gcc-c++ ...
 
 $ yum install gcc zlib zlib-devel python-devel libffi-devel openssl openssl-devel
+
+
 $ yum install gcc-c++
 
 
 2) install python3.6
+
 $ mkdir -p /usr/local/python3
+
+
 $ tar -zxvf Python-3.6.1.tgz
+
+
 $ cd Python-3.6.1
+
+
 $ ./configure --prefix=/usr/local/python3 --enable-optimizations
+
+
 $ make
+
+
 $ make install
 
 
@@ -31,12 +44,17 @@ $ ln -s /usr/local/python3/bin/python3 /usr/bin/python3
 
 $ vim ~/.bash_profile
 
-# .bash_profile
-# Get the aliases and functions
+
+#.bash_profile
+
+#Get the aliases and functions
+
 if [ -f ~/.bashrc ]; then
 . ~/.bashrc
 fi
-# User specific environment and startup programs
+
+#User specific environment and startup programs
+
 PATH=$PATH:$HOME/bin:/usr/local/python3/bin
 export PATH
 
@@ -46,8 +64,6 @@ $ source ~/.bash_profile
 3) set  pip3
 
 $ ln -s /usr/local/python3/bin/pip3 /usr/bin/pip3
-
-
 
 4) install  boto3
 
@@ -89,8 +105,11 @@ $ sudo pip3 install -r requirements.txt
 8) run the web:
 
 $ sudo sh run_server.sh start
+
 or
+
 $ sudo sh run_server.sh stop
+
 
 
 
