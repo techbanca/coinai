@@ -4,7 +4,6 @@
     Risk / Return Attribution
     Calculates each Coin's contribution to portfolio return, volatility and marginal var
 
-
     Developed by Coin-AI, 2017-2018
     Contact: banca
 """
@@ -40,6 +39,7 @@ class PortfolioAttribution:
         #contribition to risk
         crisks = [b * w / self.tot_beta for b,w in zip(self.regs, self.weights)]
         self.crisk = [toDecimal(crisk) for crisk in crisks]
+        
         self.port_mean, self.port_std, self.port_var = self.calc_port_stats(self.proforma)
         #marginal var
         self.marginal_vars = []
@@ -48,6 +48,7 @@ class PortfolioAttribution:
             self.marginal_vars.append(toDecimal(var))
         #return contributions
         self.coin_returns = [mean(ts) for ts in self.coins_ts]
+        
         self.coin_ret_contrib = [r * w   for r,w in zip(self.coin_returns, self.weights)]
         self.port_er = sum(self.coin_ret_contrib)
         c_rets = [r / self.port_er for r in self.coin_ret_contrib]
