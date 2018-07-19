@@ -11,6 +11,7 @@
         }
     ],
    
+    
     "AttributeDefinitions": [ 
      
         {
@@ -24,7 +25,7 @@
     ],
      
     "ProvisionedThroughput": {
-        "ReadCapacityUnits": 2, 
+        "ReadCapacityUnits": 3, 
         "WriteCapacityUnits": 2
     }
     
