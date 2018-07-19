@@ -72,6 +72,7 @@ class PeerAnalysis:
         self.peer_coins = [f for f in self.peer_coins if len(f.Performance) > 3]
         self.folio_ts = self.folio.folio_ts if self.user_id else self.folio.Performance
         self.entire_history = self.folio.entire_history if self.user_id else ""
+        
         self.peer_coins.append(self.folio)
         # self.folio_stats = BasicStats(self.folio_ts)
         factors = None
@@ -87,7 +88,7 @@ class PeerAnalysis:
         
         stat = lambda i,x: PeerStat(self.folio_ts, x, self.user_id, factors=factors,Index=i,regime_model=regime_model)
         N = len(self.peer_coins)
-        if N > 11:
+        if N >= 10:
             N = 11
 
         self.peer_stats = sorted([stat(i,peer) for i,peer in enumerate(self.peer_coins)],
