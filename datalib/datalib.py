@@ -295,6 +295,7 @@ class Connection:
             return res['Items']
         return []
         
+        
     def get_regime_model(self, model_name):
         table = self.get_table("RegimeModel")
         res = table.get_item(Key={"ModelName":model_name})
@@ -393,6 +394,7 @@ class Connection:
             self.get_table("Coin").put_item(Item=coin.to_db_item())
         return coin
 
+    
     def update_portfolio_coin(self, portfolio):
 
         coin = self.get_portfolio_coin(portfolio)
