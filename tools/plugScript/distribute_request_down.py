@@ -6,7 +6,6 @@ import asyncio
 import aiohttp
 import datetime
 
-
 from bs4 import BeautifulSoup
 
 current_path = os.path.realpath(__file__)
@@ -79,6 +78,7 @@ async def down_paraser_item(pre_item, day_num=0, session=None):
     percent_change_24h = pre_item["percent_change_24h"]
     day_7_index = pre_item["day_7_index"]
 
+    
     price = pre_item["price"]
     price_btc = pre_item["price_btc"]
     trading_24_btc_volume = pre_item["trading_24_btc_volume"]
