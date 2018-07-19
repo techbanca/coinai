@@ -7,6 +7,7 @@
     Contact: banca
 """
 
+
 import pandas as pd 
 from decimal import Decimal
 from datetime import datetime
@@ -56,7 +57,7 @@ def parse_coin_from_excel(ownerid,filename,key_field = 'ManagerName'):
                     dtstr = datetime.fromtimestamp(dtvalue).strftime("%m/%d/%Y")
                     perf = perf_info.iloc[t,idx]
                     if 'float' in perf.__class__.__name__:
-                        val = round(Decimal(str(perf)),4)
+                        val = round(Decimal(str(perf)),3)
                         if not val.is_nan():
                             if not val.is_infinite():
                                 coin_ts.append({
