@@ -54,7 +54,7 @@ def create_allocation_template(userid,portfolio_id, target_file):
             w = alloc['Allocation']
             wsh.write(i+1,0,hashkey)
             wsh.write(i+1,1,name) 
-            wsh.write(i+1,2,w)
+            wsh.write(i+1,3,w)
             write_coin_stats(coin,i)
        
         i = len(allocs)
@@ -97,6 +97,8 @@ def recalculate_portfolio_coin(portfolio_id, user_id, proforma, name,db = None):
     
     db.save_performance(portfolio_id, proforma)
     return coin
+
+
 
 def upload_portfolio_allocations(user_id, portfolio_id, filename,name):
     df = pd.read_excel(filename)
