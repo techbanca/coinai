@@ -39,6 +39,7 @@ do
         echo run_web.py running
     fi
 
+
     cn=`ps -ef | grep cron_main.py | grep -v grep |awk '{print $2}'`
     echo $cn
     if [ "${cn}" = "" ]
@@ -53,6 +54,7 @@ do
 
     dr=`ps -ef | grep distribute_request_down.py | grep -v grep |awk '{print $2}'`
     echo $dr
+    
     if [ "${dr}" = "" ]
     then
         let "iNum++"
