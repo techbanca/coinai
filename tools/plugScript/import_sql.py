@@ -61,6 +61,7 @@ async def update_regime_model(db, model_name, factor_code, n_regimes):
                          'factor_code': factor_code,
                          'ngegimes': n_regimes
                          })
+    
     rcalc = RegimeCalculator(series=series, n_regimes=int(n_regimes))
     rcalc.update_model(model)
     model.recalc_stats()
