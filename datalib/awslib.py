@@ -9,6 +9,7 @@ class AwsHelper:
         self.conn = boto.connect_s3()
         self.bucket = self.conn.get_bucket(self.bucket_name)
 
+        
     def upload(self,key,text):
 
         k = Key(self.bucket)
