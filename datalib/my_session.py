@@ -19,8 +19,8 @@ def get_session(sessionid):
     
     return res['Item'] if res_ok(res) else def_sess(sessionid)
 
-
 def save_session(session):
+    
     db = Connection()
     table = db.get_table("Session")
     table.put_item(Item=session)
