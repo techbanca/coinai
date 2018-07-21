@@ -15,6 +15,7 @@ def create_app():
 application = app = create_app()
 
 
+
 @app.context_processor
 def template_extras():
 
@@ -22,3 +23,5 @@ def template_extras():
 
 if __name__ == '__main__':
     application.run()
+    
+    
