@@ -11,7 +11,6 @@ from datalib.coin import Coin
 from datetime import datetime 
 from analytics.time_series import get_frequency
 
-
 db = Connection()
 COINS = db.get_all_coins()
 table = db.get_table("COIN")
@@ -30,5 +29,4 @@ for COIN in COINS:
     table.put_item(Item=item)
     # print("COIN updated: %s" % COIN.Name)
 
-    
-    
+ 
