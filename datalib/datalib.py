@@ -71,6 +71,7 @@ class Connection:
     def __init__(self):
         self.db = getdb()
     
+    
     def get_table(self,table_name):
         return self.db.Table(name=table_name)
 
@@ -123,7 +124,8 @@ class Connection:
         if 'HashKey' in item:
             item['Performance'] = self.get_performance(item['HashKey'])
             
-            
+      
+    
     def get_coin_by_name(self, *, owner, name, get_ts = False):
          
         table = self.get_table("Coin")
@@ -135,6 +137,7 @@ class Connection:
         # determine if the performance data need to be retrieved
         if get_ts:
             proj = proj + ',Performance'
+        
         res = table.query(IndexName="OwnerID-Name-index",
                           KeyConditionExpression=Key('OwnerID').eq(owner) & Key("Name").eq(name), 
                           ExpressionAttributeNames={"#CoinName":"Name"},
