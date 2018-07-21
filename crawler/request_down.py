@@ -37,6 +37,7 @@ def down_paraser_item(pre_item):
     end_day = now.strftime('%Y%m%d')
     bitcoin_name = pre_item["url"].split("/")[-2]
     value_dict[bitcoin_name] = ""
+    
     url = domain_url + pre_item["url"] + search_url%(start_day, end_day)
     html = get_one_page(url)
     
@@ -47,7 +48,7 @@ def down_paraser_item(pre_item):
         for tr in trs:
             tds = tr.find_all(name="td")
             
-            date_str = tds[0].text[:4] + "-" + tds[0].text[5:7] + "-" + tds[0].text[8:-1]
+            date_str = tds[0].text[:4] + "-" + tds[0].text[5:6] + "-" + tds[0].text[8:-1]
             td_str = date_str + "," + tds[4].text + "\n"
             value_dict[bitcoin_name] += td_str
     file = codecs.open(output_path + '^%s.csv'%bitcoin_name, 'w', encoding='utf-8')
