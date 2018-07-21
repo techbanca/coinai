@@ -40,6 +40,7 @@ class calculateData():
         self.mycopyfile('CoinImportTemplate.xlsx', 'CoinImportTemplate%s.xlsx'%type_name)
         wb = load_workbook('CoinImportTemplate%s.xlsx'%type_name)
         sheet_names = wb.sheetnames
+        
         w_sheet_0 = wb[sheet_names[0]]
         
         w_sheet_0.cell(row=2,column=2).value = type_name
