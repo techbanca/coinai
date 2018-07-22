@@ -54,6 +54,7 @@ class PeerStat:
         self.XY = common_data.values
 
 class PeerAnalysis:
+    
     def __init__(self, folio, userid=None, model_ticker=None,regime_model_name=None):
 
         self.db = Connection.getInstance()
