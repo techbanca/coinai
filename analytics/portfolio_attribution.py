@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+
 """
     Risk / Return Attribution
     Calculates each Coin's contribution to portfolio return, volatility and marginal var
@@ -56,6 +57,7 @@ class PortfolioAttribution:
         self.N = len(self.coins)
              
     def calc_port_stats(self, ts):
+        
         port_mean = mean(ts)
         port_std = std(ts)
         port_var = port_mean - 1.96 * port_std        
