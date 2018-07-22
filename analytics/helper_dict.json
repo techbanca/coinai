@@ -13,6 +13,7 @@
     {"Key":"kurt", "Label":"Kurtosis","Format":"{:0.2f}"},
     {"Key":"pct_up", "Label":"Percent Gains","Format":"{:.2%}"},
     {"Key":"pct_dn", "Label":"% Losses", "Format":"{:.2%}"},
+        
     {"Key":"avg_gain", "Label":"Average Gain ", "Format":"{:.2%}"},
     {"Key":"std_gain", "Label":"Gain volatility", "Format":"{:.2%}"},
     {"Key":"down_dev", "Label":"Downside Deviation", "Format":"{:.2%}"},
