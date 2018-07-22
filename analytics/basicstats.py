@@ -42,6 +42,7 @@ def cvar(rets):
     ku = stats.kurtosis(rets) + 3.0
     zadj = adj_z_score(1.96, sk,ku)
     z_step = (5 -zadj) * 0.0001
+    
     z_values = [zadj + z_step * i for i in range(1000)]
     cvar_losses = [mu - st * z for z in z_values]
     return np.mean(cvar_losses)
@@ -70,6 +71,7 @@ class BasicStats:
         self.up_returns = [r for r in self.tsarr if r > 0]
         self.dn_returns = [r for r in self.tsarr if r < 0]
         self.T_UP = len(self.up_returns)
+        
         self.T_DN = len(self.dn_returns)
         self.pct_up = self.T_UP / float(self.T)
         self.pct_dn = self.T_DN / float(self.T)
