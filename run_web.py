@@ -19,6 +19,7 @@ async def init_db(loop):
 	await orm.create_pool(loop=loop, **configs.db)
 	redis_obj = Redis.getInstance()
 	data_path = os.path.join(root_path, "data/dbData/data.json")
+	
 	with open(data_path,"r") as load_f:
 		load_data = json.load(load_f)
 		hotCoins = load_data.get("hotCoins")
@@ -42,8 +43,9 @@ async def init(loop, init_port=6000):
 if __name__ == '__main__':
 
 	params = sys.argv
-	init_port = int(params[1]) if len(params) > 1 else 6000
+	init_port = int(params[1]) if len(params) > 1 else 5000
 	asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
+	
 	loop = asyncio.get_event_loop()
 	loop.run_until_complete(init(loop, init_port))
 	loop.run_forever()
