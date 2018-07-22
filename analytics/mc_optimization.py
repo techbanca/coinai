@@ -58,6 +58,7 @@ class Resampler:
        return ResampleTrial(weights, proforma)
         
     def run(self):
+        
         self.portfolio.calc_proforma(self.db,[1/float(self.N) for _ in range(self.N)],True)
         self.trials = [self.calc_trial() for _ in range(self.n_trials)]
         
