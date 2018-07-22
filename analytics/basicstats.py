@@ -45,6 +45,7 @@ def cvar(rets):
     
     z_values = [zadj + z_step * i for i in range(1000)]
     cvar_losses = [mu - st * z for z in z_values]
+    
     return np.mean(cvar_losses)
     
 class BasicStats:
@@ -67,6 +68,7 @@ class BasicStats:
         self.skew = stats.skew(self.tsarr)
         self.kurt = stats.kurtosis(self.tsarr)+3
         self.mdd_ser = BasicStats.under_water_series(self.perf_ts)
+        
         self.maxdd = min(self.mdd_ser) if self.ann_factor else 0
         self.up_returns = [r for r in self.tsarr if r > 0]
         self.dn_returns = [r for r in self.tsarr if r < 0]
@@ -80,6 +82,7 @@ class BasicStats:
         self.std_gain = np.std(self.up_returns)
         self.std_loss = np.std(self.dn_returns)
         self.vami = BasicStats.vami_arr(self.perf_ts)
+        
         self.vami_rf = BasicStats.vami_arr(self.perf_rf)
         self.cum_return = self.vami[-1] -1
         self.cum_return_rf = self.vami_rf[-1] - 1
