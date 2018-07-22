@@ -34,7 +34,7 @@ default_dict = {
     {"Key":"pct_up", "Label":"% Gains","Format":"{:.2%}"},
     {"Key":"pct_dn", "Label":"% Losses", "Format":"{:.2%}"},
     {"Key":"avg_gain", "Label":"Average Gain", "Format":"{:.2%}"},
-    {"Key":"avg_loss", "Label":"Average Loss", "Format":"{:.2%}"},
+    {"Key":"avg_loss", "Label":"Average Loss", "Format":"{:.3%}"},
     {"Key":"maxdd", "Label":"Max Drawdown", "Format":"{:.2%}"},
     {"Key":"var", "Label":"Value At Risk (Normal)", "Format":"{:.2%}"},
     {"Key":"var_adj", "Label":"VaR Adj", "Format":"{:.2%}"},
@@ -64,6 +64,7 @@ class StatsHelper:
             field = FieldInfo(field_name, field_label, fmt)
             self.field_list.append(field_name)
             self.help_dict[field_name] = field
+    
     
     def help(self,obj):
         obj_dict = obj.__dict__
