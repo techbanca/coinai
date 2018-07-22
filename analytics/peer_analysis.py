@@ -50,6 +50,7 @@ class PeerStat:
             self.peer_style = None
             
         if regime_model:
+            
             self.regime_stats = RegimeAnalysis(peer, regime_model, peer, user_id)
         self.XY = common_data.values
 
@@ -71,6 +72,7 @@ class PeerAnalysis:
             self.peer_coins = await self.db.get_coins_datas()
         self.peer_coins = [f for f in self.peer_coins if 'Performance' in f.__dict__]
         self.peer_coins = [f for f in self.peer_coins if len(f.Performance) > 3]
+        
         self.folio_ts = self.folio.folio_ts if self.user_id else self.folio.Performance
         self.entire_history = self.folio.entire_history if self.user_id else ""
         
@@ -89,6 +91,7 @@ class PeerAnalysis:
         
         stat = lambda i,x: PeerStat(self.folio_ts, x, self.user_id, factors=factors,Index=i,regime_model=regime_model)
         N = len(self.peer_coins)
+        
         if N >= 10:
             N = 11
 
