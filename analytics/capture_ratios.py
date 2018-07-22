@@ -8,7 +8,6 @@
     Contact: banca
 """
 
-
 from analytics.time_series import logreturns, align_series
 
 import statsmodels.api as sm 
@@ -19,7 +18,6 @@ class CaptureRatios:
         r1 = logreturns(ts1[idx])
         r2 = logreturns(ts2[idx])
         return r1/r2
-
     
     def calc_beta(self,ts_y, ts_x, idx):
         
@@ -40,6 +38,7 @@ class CaptureRatios:
         self.idx_bench_up = self.bench_data > 0
         self.idx_bench_dn = self.bench_data < 0
         self.T = len(self.bench_data)
+        
         self.T_Up = len([i for i in self.idx_bench_up if i ])
         self.T_Dn = len([i for i in self.idx_bench_dn if i ])
         
