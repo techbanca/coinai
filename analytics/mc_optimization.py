@@ -7,7 +7,6 @@
     
     The more portfolios / trials are created the more accurate the results 
     would be. To improve performance we usually start on the page with just 100 trials
-
     Developed by Coin-AI, 2017-2018
     Contact: banca
 """
@@ -53,6 +52,7 @@ class Resampler:
        calculate single trial:
            use random weights to calcualte proforma time series
        """
+    
        weights = self.trial_weights()
        proforma = self.portfolio.calc_proforma(self.db,weights,False)
        return ResampleTrial(weights, proforma)
