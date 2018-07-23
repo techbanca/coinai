@@ -9,6 +9,7 @@
                 "AttributeName": "Code"
             }
         ],
+        
         "TableName": "ReferenceData",
         "KeySchema": [
             {
