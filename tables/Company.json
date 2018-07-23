@@ -6,6 +6,7 @@
             "KeyType": "HASH"
         }
     ],
+    
     "AttributeDefinitions": [ 
         {
             "AttributeName": "HashKey",
