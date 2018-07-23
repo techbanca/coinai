@@ -2,7 +2,7 @@
 
     "TableName": "FactorModel",
     "ProvisionedThroughput": {
-        "ReadCapacityUnits": 5,
+        "ReadCapacityUnits": 6,
         "WriteCapacityUnits": 5
     },
     "AttributeDefinitions": [
