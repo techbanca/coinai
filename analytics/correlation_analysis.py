@@ -6,7 +6,6 @@
     Developed by Coin-AI, 2017-2018
     Contact: banca
 """
-
 from analytics.time_series import align_series
 
 class CorrelationAnalysis:
