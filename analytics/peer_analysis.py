@@ -70,6 +70,7 @@ class PeerAnalysis:
             self.peer_coins = await self.db.get_portfolio_datas(self.user_id)
         else:
             self.peer_coins = await self.db.get_coins_datas()
+            
         self.peer_coins = [f for f in self.peer_coins if 'Performance' in f.__dict__]
         self.peer_coins = [f for f in self.peer_coins if len(f.Performance) > 3]
         
@@ -79,6 +80,7 @@ class PeerAnalysis:
         self.peer_coins.append(self.folio)
         # self.folio_stats = BasicStats(self.folio_ts)
         factors = None
+        
         if self.model_ticker:
             model_info = await self.db.get_factor_model(self.model_ticker)
             tickers = json.loads(model_info.factors.decode())
