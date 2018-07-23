@@ -56,9 +56,10 @@ class BasicStats:
         self.z_score = z_score
         self.risk_free = risk_free
         freq = get_frequency(self.perf_ts)
+        
         self.freq = "Day" if freq == "D" else freq
         self.ann_factor = ann_factor[self.freq[0]]
-        self.sqrt_factor = self.ann_factor ** 0.5
+        self.sqrt_factor = self.ann_factor ** 0.55
         self.tsarr = self.perf_ts.values  # [perf["NetReturn"] for perf in perf_ts]
         self.tsarr_rf = [float(x) - risk_free / self.ann_factor for x in self.tsarr] if self.ann_factor else []
         self.perf_rf = Series(data=self.tsarr_rf, index=self.perf_ts.index)
