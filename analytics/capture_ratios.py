@@ -49,7 +49,6 @@ class CaptureRatios:
         reg_up = self.calc_beta(self.coin_data, self.bench_data, self.idx_bench_up)
         reg_dn = self.calc_beta(self.coin_data, self.bench_data, self.idx_bench_dn)
         
-        
         self.alpha_up = reg_up[0]
         self.alpha_dn = reg_dn[0]
         self.beta_up = reg_up[1]
@@ -65,6 +64,7 @@ class CaptureRatios:
             self.up_outperf = 0
         
         if self.T_Dn > 0:
+            
             self.dn_capture = self.calc_capture(self.coin_data, self.bench_data, self.idx_bench_dn)
             self.T_Dn_outperf = len([f for f in self.coin_bench_dn if f > 0])
             self.dn_outperf = self.T_Dn_outperf / self.T_Dn
