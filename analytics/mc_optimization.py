@@ -48,6 +48,7 @@ class Resampler:
         return weights   
             
     def calc_trial(self):
+        
        """
        calculate single trial:
            use random weights to calcualte proforma time series
@@ -71,6 +72,7 @@ class Resampler:
 """
     For testing: provide correct portid and user id
 """
+
 if __name__ == '__main__':
     
     pass
