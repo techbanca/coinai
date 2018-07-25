@@ -42,6 +42,7 @@ async def calculate_weight(allocations=[]):
         rate = float(price / pre_price - 1)
         allo["rate"] = float(round(rate, 4))
         coin_assets = number * price
+        
         init_assets += float(coin_assets)
         weight_dict[allo["coin_name"]] = coin_assets
 
@@ -88,6 +89,7 @@ async def calculate_portfolio(folio_id, folio=None, re_cal=False, is_modify=Fals
             if "number" not in allo:
                 weight = allo["weight"]
                 number = round(float(1000000 * weight / float(price)), 3)
+                
                 allo["number"] = number
             else:
                 number = allo["number"]
