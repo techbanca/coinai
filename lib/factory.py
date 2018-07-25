@@ -54,6 +54,7 @@ async def response_factory(app, handler):
 		r = await handler(request)
 		if isinstance(r, web.StreamResponse):
 			return r
+		
 		if isinstance(r, bytes):
 			return to_response(r)
 		if isinstance(r, str):
