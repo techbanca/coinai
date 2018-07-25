@@ -18,6 +18,7 @@ async def findCoinAllList(offset, limit):
         item["coin_name"] = c.name
         item["simple_name"] = c.simple_name
         item["market_cap"] = c.market_cap
+        
         item["supply_pvolume"] = c.supply_pvolume
         item["trading_24_volume"] = c.trading_24_volume
         item["price"] = c.price
@@ -46,6 +47,7 @@ async def findHotCoinList(all=0):
             item["coin_name"] = c.name
             item["simple_name"] = c.simple_name
         else:
+            
             item["coin_id"] = c.id
             item["coin_url"] = img_path + (c.website_slug.lower() + ".png" if c.website_slug else c.name.lower().replace(" ","-") + ".png")
             item["coin_name"] = c.name
