@@ -45,7 +45,6 @@ async def data_factory(app, handler):
 		return (await handler(request))
 	return parse_data
 
-
 async def response_factory(app, handler):
 
 	async def response(request):
