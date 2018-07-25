@@ -92,6 +92,7 @@ async def portfolio_optimization_report(folio_id, request, *, risk_fun=""):
     result = {"error": 0, "data": "", "message": ""}
     language = request.__user__.get("language", "en")
     db = Connection.getInstance()
+    
     portfolio =  await db.get_portfolio(folio_id, recalc=False, modify_num=30)
     if not portfolio:
         result["error"] = 402
