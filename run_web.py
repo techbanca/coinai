@@ -14,7 +14,6 @@ from lib.redis import Redis
 from logger.client import info
 from settings import module_list, host, root_path
 
-
 async def init_db(loop):
 	await orm.create_pool(loop=loop, **configs.db)
 	redis_obj = Redis.getInstance()
@@ -24,6 +23,7 @@ async def init_db(loop):
 		load_data = json.load(load_f)
 		hotCoins = load_data.get("hotCoins")
 		update_report = load_data.get("update_report")
+		
 	redis_obj.set("hotCoins", json.dumps(hotCoins))
 	redis_obj.set("update_report", json.dumps(update_report))
 
