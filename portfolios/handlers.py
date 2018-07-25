@@ -113,6 +113,7 @@ async def add_coin_portfolios(request, portfolios):
     if repeat:
         result["error"] = 407
         result["message"] = _("407_DUPLICATION_COIN", language)  # "The portfolio have the duplication of coin."
+        
         return result
 
     if all_weight > 1.0:
