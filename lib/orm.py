@@ -9,7 +9,6 @@ __pool = None
 def log(sql, args=()):
     info('SQL: %s' % sql)
 
-
 async def create_plug_pool(loop, **kw):
 	global __pool
 	__pool = await aiomysql.create_pool(
@@ -23,6 +22,7 @@ async def create_plug_pool(loop, **kw):
 		maxsize = kw.get('maxsize', 5),
 		minsize = kw.get('minsize', 1),
 		loop = loop
+		
 		)
 
 
@@ -271,7 +271,6 @@ class Model(dict, metaclass = ModelMetalclass):
 			errMsg = getErrorMsg()
 			error("orm save error is: %s" % (errMsg))
 			return None
-
 
 	async def update(self):
 		try:
