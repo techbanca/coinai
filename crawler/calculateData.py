@@ -31,6 +31,7 @@ class calculateData():
     def read_csv(self, type_name):
 
         data_path_csv = os.path.join(data_path, "^%s.csv"%type_name)
+        
         with open(data_path_csv, 'r') as load_f:
             data_list = load_f.readlines()
             self.call_data(data_list)
@@ -39,6 +40,7 @@ class calculateData():
 
         self.mycopyfile('CoinImportTemplate.xlsx', 'CoinImportTemplate%s.xlsx'%type_name)
         wb = load_workbook('CoinImportTemplate%s.xlsx'%type_name)
+        
         sheet_names = wb.sheetnames
         
         w_sheet_0 = wb[sheet_names[0]]
