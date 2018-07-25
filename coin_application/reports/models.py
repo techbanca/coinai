@@ -59,5 +59,6 @@ class RegimeModel(Model):
     factor_code = StringField(ddl='varchar(20)')
     model_name = StringField(ddl='varchar(20)')
     ngegimes = FloatField(default=1.0)
+	
     history = StringField(ddl='blob', default="")
     created_at = FloatField(default=time.time)
