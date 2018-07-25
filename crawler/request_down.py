@@ -15,6 +15,7 @@ def get_one_page(url):
         return response.content
 
 def bs4_paraser(html):
+    
     all_value = []
     value = {}
     soup = BeautifulSoup(html, 'html.parser')
