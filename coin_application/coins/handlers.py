@@ -121,6 +121,7 @@ async def get_coin_analysis(request):
     """
     result = {"error": 0, "data": "", "message": ""}
     coin_list =  ["Banca"]
+    
     coin_list.extend(hotCoins)
     dataList = await dao.findCoinByNames(coin_list)
     result["data"] = dataList
