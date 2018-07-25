@@ -37,7 +37,6 @@ def toDict(d):
         D[k] = toDict(v) if isinstance(v, dict) else v
     return D
 
-
 configs = settingsdefault.configs
 
 try:
