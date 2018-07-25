@@ -1,5 +1,4 @@
 import os
-
 from aiohttp import web
 from jinja2 import Environment, FileSystemLoader
 from lib.utils import to_response
