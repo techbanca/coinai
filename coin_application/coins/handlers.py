@@ -46,6 +46,7 @@ async def get_coin_name_list(request):
     result = {"error": 0, "data": "", "message": ""}
     redis_obj = Redis.getInstance()
     coin_name_list = redis_obj.get("coin_name_list")
+    
     if not coin_name_list:
         dataList = await dao.findHotCoinList(all=1)
         redis_obj.set("coin_name_list", json.dumps(dataList))
@@ -124,5 +125,6 @@ async def get_coin_analysis(request):
     
     coin_list.extend(hotCoins)
     dataList = await dao.findCoinByNames(coin_list)
+    
     result["data"] = dataList
     return result
