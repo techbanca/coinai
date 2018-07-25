@@ -32,8 +32,10 @@ async def saveUser(user_id, name, nickname, head_image_url, option_one, option_t
         obj.head_image_url = head_image_url
         obj.nickname = nickname
         res = await obj.update()
+        
     else:
         user = User(user_id=user_id, name=name, nickname=nickname, head_image_url=head_image_url,option_one=option_one,
                     option_two=option_two, option_three=option_three, score=score, ratio=ratio, state=state)
         res = await user.save()
+        
     return res
