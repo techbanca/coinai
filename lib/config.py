@@ -19,7 +19,6 @@ class Dict(dict):
     def __setattr__(self, key, value):
         self[key] = value
 
-
 def merga(default, override):
     r = {}
     for k, v in default.items():
