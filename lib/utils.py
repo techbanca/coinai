@@ -44,14 +44,12 @@ def getPerformanceList(perfor_data={}):
     performance = sorted(performance, key=lambda x: x["EffectiveDate"], reverse=False)
     return performance
 
-
 def hasVip(vipEndDate=""):
     if vipEndDate:
         nowDate = getUTCDate(False)
         isVip = True if int(vipEndDate) >= int(nowDate) else False
         return isVip
     return False
-
 
 def getHexStrMode( hex_str, mode_num=2):
 
