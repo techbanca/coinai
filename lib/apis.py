@@ -6,7 +6,6 @@ class APIError(Exception):
 		self.data = data
 		self.message = message
 
-		
 class APIValueError(APIError):
 	"""docstring for APIValueError"""
 	def __init__(self, field, message=''):
