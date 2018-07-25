@@ -35,8 +35,10 @@ async def add_user_survey(request, *, option_one, option_two, option_three):
         option_one_val = choices["option_one"].get(int(option_one), 1)
         option_two_val = choices["option_two"].get(int(option_two), 1)
         option_three_val = choices["option_three"].get(int(option_three),1)
+        
         score = float(option_one_val) + float(option_two_val) + float(option_three_val)
         ratio = float(float(option_one_val)/50 + float(option_two_val)/10 + float(option_three_val)*10)/100.0
+        
         await dao.saveUser(user_id, name, nickname, head_image_url, option_one, option_two, option_three, score, ratio)
         result["message"] = _("0_ADD_SUCCESSFUL", language)  # "Added successfully."
 
