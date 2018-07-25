@@ -44,6 +44,7 @@ def down_paraser_item(pre_item):
     
     soup = BeautifulSoup(html, 'html.parser')
     all_div_item = soup.find_all(name="div", attrs={"class": "tab-header"})
+    
     for div in all_div_item:
         trs = div.find_all(name="tr", attrs={"class": "text-right"})
         for tr in trs:
@@ -52,6 +53,7 @@ def down_paraser_item(pre_item):
             date_str = tds[0].text[:4] + "-" + tds[0].text[5:6] + "-" + tds[0].text[8:-1]
             td_str = date_str + "," + tds[4].text + "\n"
             value_dict[bitcoin_name] += td_str
+            
     file = codecs.open(output_path + '^%s.csv'%bitcoin_name, 'w', encoding='utf-8')
     file.write(value_dict[bitcoin_name])
 
