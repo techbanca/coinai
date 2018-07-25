@@ -9,7 +9,6 @@ from lib.utils import to_response, token2user, getErrorMsg, frequency, hasVip, r
 from logger.client import error, request_info
 from settings import root_path
 
-
 def get(path, auth=True):
 	def decorator(func):
 		@functools.wraps(func)
