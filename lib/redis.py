@@ -110,6 +110,7 @@ class Redis():
             self.sentinel = self.connect()
             return {}
 
+        
     def getListLen(self, prodcons_queue):
         try:
             slave = self.sentinel.master_for('mymaster')
