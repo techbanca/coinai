@@ -44,6 +44,7 @@ message = {
         "401_MAXIMUM_THREE":"포트폴리오 최대치는 3입니다.",
         "402_NOT_EXIST":"이번 포트폴리오는 존재하지 않음.",
         "403_LOGIN":"좀 로그인.",
+        
         "405_INVAID_CODE":"무효 코드.",
         "406_NUMBER_COINS":"코인 수는 1부터 10사이여야 합니다.",
         "407_DUPLICATION_COIN":"포트폴리오는 코인 복사본이 있습니다.",
