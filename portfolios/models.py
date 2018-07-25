@@ -25,6 +25,7 @@ class Portfolio(Model):
     hour_24_history = FloatField(default=0.0)
     max_history = FloatField(default=0.0)
     day_7_history = FloatField(default=0.0)
+	
     day_30_history = FloatField(default=0.0)
     day_60_history = StringField(ddl='varchar(20)', default="0.0%")
     day_90_history = StringField(ddl='varchar(20)', default="0.0%")
