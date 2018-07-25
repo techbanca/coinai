@@ -59,8 +59,10 @@ async def findRegimeModel(model_name=None):
         if regimeModel:
             regimeModel = regimeModel[0]
         return regimeModel
+    
     else:
         regimeModels = await RegimeModel.findAll()
+        
         if regimeModels:
             return [{"factor_code":regime.factor_code, "history":[{
                         "Regime": item["Regime"],
