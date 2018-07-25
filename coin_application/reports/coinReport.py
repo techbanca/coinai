@@ -11,6 +11,7 @@ from analytics.correlation_analysis import CorrelationAnalysis
 from analytics.helper import StatsHelper
 from analytics.regression_analysis import RegressionAnalysis
 from analytics.time_series import align_series
+
 from coin_application.portfolios import dao as folios_dao
 from coin_application.reports import dao as report_dao
 from datalib.coin import CoinPerformance
@@ -56,7 +57,7 @@ def get_histogram(values, gt=True, val=10):
                 data_list.append(d)
         else:
             if val > float(d[0]):
-                per = -0.999
+                per = -0.9999
                 val_num += int(d[1])
             else:
                 data_list.append(d)
@@ -110,6 +111,7 @@ def calculate_fts(fts=[], dates=[]):
         week_fts = fts[-7:]
         week_volatility = np.std(week_fts)
         total_volatility = np.std(fts)
+        
         return {"week_volatility": "%s%%" % str(round(week_volatility*100, 3)),
                 "week_max_drawdown": "%s%%" % str(round(week_max_drawdown, 3)),
                 "total_volatility": "%s%%" % str(round(total_volatility*100, 3)),
@@ -203,6 +205,7 @@ async def portfolio_ratios(port_folio=None, folio_id="", db=None, lang="en"):
 
             resultsAll = helper.init_help()
             result_dict = dict(resultsAll)
+            
             ratio_items["Period volatility"]["volatility"] = result_dict.get("% Volatility", "")
             ratio_items["Max Drawdown"]["max_drawdown"] = result_dict.get("Max Drawdown", "")
             ratio_items["Cumulative Return"].append(result_dict.get("Cumulative Return", ""))
