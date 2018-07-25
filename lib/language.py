@@ -76,4 +76,5 @@ message = {
         'Max Drawdown': '최대 축소',
         'Annualized Volatility': '연간 가변성'
     }
+    
 }
