@@ -1,6 +1,5 @@
 
 import os, shutil, sys
-
 from openpyxl import load_workbook
 
 current_path = os.path.realpath(__file__)
