@@ -20,6 +20,7 @@ class User(Model):
     head_image_url = StringField(ddl='varchar(30)', default="")
     option_one = StringField(ddl='varchar(20)', default="")
     option_two = StringField(ddl='varchar(20)', default="")
+	
     option_three = StringField(ddl='varchar(20)', default="")
     score = IntegerField(default=0)
     ratio = FloatField(default=0.0)
