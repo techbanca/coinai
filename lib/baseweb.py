@@ -39,6 +39,7 @@ def post(path, auth=True):
 				result = {"error": 500, "data": "", "message": _("500_SERVER_ERROR", kw.get("language","en"))}
 				return result
 		wrapper.__method__ = 'POST'
+		
 		wrapper.__route__ = path
 		wrapper.__auth__ = auth
 		return wrapper
