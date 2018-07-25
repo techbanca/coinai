@@ -36,6 +36,7 @@ async def add_coin_portfolios(request, portfolios):
     status = request.__user__.get("status", 0)
     if int(status) != 1:
         result["error"] = 410
+        
         result["message"] = _("410_ACCOUNT_ACCESS", language)  # "This account is not activated and has no access rights."
         return result
 
