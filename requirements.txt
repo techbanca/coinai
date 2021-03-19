@@ -11,7 +11,7 @@ cryptography==1.2.3
 docutils==0.12
 idna==2.0
 itsdangerous==0.24
-Jinja2==2.8
+Jinja2==2.11.3
 jmespath==0.9.0
 jsonpatch==1.10
 jsonpointer==1.9
