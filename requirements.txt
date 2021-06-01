@@ -40,7 +40,7 @@ six==1.10.0
 sklearn==0.0
 ssh-import-id==5.5
 statsmodels==0.6.1
-urllib3==1.13.1
+urllib3==1.26.5
 Werkzeug==0.11.11
 xlrd==1.0.0
 xlutils==2.0.0
